@@ -1,0 +1,46 @@
+{% extends "grid.html" %}
+{% block form %}
+<h2>Student Registration Form</h2>
+<form action="">
+    <label>Enter name: </label>
+    <input type="text" placeholder="Smith" id="name"><br><br>
+
+    <label>Enter password: </label>
+    <input type="password" id="password"><br><br>
+
+    <label>Enter email: </label>
+    <input type="email" placeholder="someone@gmail.com" id="email"><br><br>
+
+    <label>Enter age: </label>
+    <input type="number" placeholder="19" id="age"><br><br>
+
+    <label>Enter DOB: </label>
+    <input type="date" id="dob"> <br><br>
+
+    <label>Choose Gender: </label>
+    <input type="radio" name="gender" id="male">male
+    <input type="radio" name="gender" id="female">female <br><br>
+
+    <label>Skills: </label>
+    <input type="checkbox">Python
+    <input type="checkbox">Java
+    <input type="checkbox">Cpp <br><br>
+
+    <label>Branch: </label>
+    <select id="branch">
+        <option>CSE</option>
+        <option>Civil</option>
+        <option>Chemical</option>
+    </select> <br><br>
+
+    <label>Address: </label>
+    <textarea rows="5"></textarea> <br><br>
+
+    <label>Upload Resume: </label>
+    <input type="file"> <br><br><br>
+
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+</form>
+
+{% endblock %}

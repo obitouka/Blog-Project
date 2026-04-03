@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        .top {
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .left {
+            background-color: green;
+            color: white;
+            height: 600px;
+            float: left;
+            text-align: center;
+            width: 20%;
+            padding-top: 20px;
+        }
+
+        .center {
+            background-color: purple;
+            color: white;
+            height: 600px;
+            text-align: center;
+            float: left;
+            width: 60%;
+            padding-top: 20px;
+        }
+
+        .right {
+            background-color: blue;
+            color: white;
+            height: 600px;
+            float: left;
+            text-align: center;
+            width: 20%;
+            padding-top: 20px;
+        }
+
+        .bottom {
+            background-color: orange;
+            color: white;
+            text-align: center;
+            clear: both;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">Top Section</div>
+    <div class="left">Left Section</div>
+    <div class="center">
+        {% block form %}
+        {% endblock %}
+    </div>
+    <div class="right">Right Section</div>
+    <div class="bottom">Bottom Section</div>
+
+</body>
+
+</html>

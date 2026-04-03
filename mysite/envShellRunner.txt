@@ -1,0 +1,7 @@
+pip install python-decouple
+python manage.py shell
+from django.core.mail import send_mail
+send_mail('Djanog mail', 'This message was sent from user', 'sender@gmail.com', ['reciever@gmail.com'], fail_silently=False)
+
+
+python -m pip install django-taggit

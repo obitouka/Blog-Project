@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+
+    <!--External CSS-->
+    <style> 
+        thead{
+            color: blueviolet;
+            background-color: bisque;
+        }
+
+        tbody{
+            color: red;
+            background-color: bisque;
+        }
+
+        #paraId1{
+            font-size: 40px;
+        }
+
+        .paraClass1{
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="color: red;">Inline <br> CSS </h1>
+
+    <p id="paraId1">
+        <span>I am para</span>
+        <span>1</span>
+    </p>
+
+    <hr><!--Horizontal line-->
+
+    <p class="paraClass1"> This is <a href="https://www.google.com/">google.com</a> <img src="{% static 'images/googleImage.png' %}" alt="reloading"> </p>
+
+    <table>
+        <thead><!--Header-->
+            <tr><!--Table row-->
+                <th>Name</th><!--Table heading-->
+                <th>Age</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Roshan</td><!--Table data-->
+                <td>20</td>
+            </tr>
+
+            <tr>
+                <td>Divyansh</td>
+                <td>50</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% load static %}         <!-- 0.18 Load static files -->
+{% load blog_tags %}      <!-- 3.16 Load custom tags -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}{% endblock %}
+    </title> <!-- 0.19 Dynamic title -->
+    <link rel="stylesheet" href="{% static 'css/design.css' %}">
+    <!-- 0.20 CSS file -->
+</head>
+
+<body>
+    <div id="content">
+        {% block content %}{% endblock %}
+        <!-- 0.21 Page content -->
+    </div>
+
+    <div id="sidebar">
+        <h2>My Blog</h2>
+        <p>This is my blog</p>
+
+        <h2 class="tags">
+            I have {% total_posts %} posts in my DB
+            <!-- 3.17 Custom tag (count posts) -->
+        </h2>
+
+        <hr>
+        
+        <h2>Latest Posts</h2>
+        {% show_latest_posts 6 %}
+        <!-- 10.9 Show latest 6 posts -->
+    </div>
+</body>
+</html>

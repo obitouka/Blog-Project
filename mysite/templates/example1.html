@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Example1</title>
+</head>
+<body>
+    <h1> Hello : {{myname}}</h1>
+    {% for i in list1 %}
+    <p>{{i}}</p>
+    {%endfor%}
+
+    <form method="POST">
+        {%csrf_token%}
+        <input type="text" name="name">
+        <button type="submit">submit</button>
+    </form>
+
+    <p>hello {{name}}</p>
+
+</body>
+</html>

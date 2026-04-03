@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}                         <!-- 0.17 Use base template -->
+
+{% block title %}Add a comment{% endblock %}
+
+{% block content %}
+    {% if comment %}                                      <!-- 8.50 If comment saved -->
+        <h2>Your comment has been added.</h2>
+        <p>
+            <a href="{{post.get_absolute_url}}">                  <!-- 7.14 Back to post -->
+                Back to the post
+            </a>
+        </p>
+    {% else %}
+        {% include "blog/includes/comment_form.html" %}        <!-- 8.51 Show form -->
+    {% endif %}
+{% endblock %}

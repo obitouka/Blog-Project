@@ -1,0 +1,149 @@
+body {
+    background-color: #e0a6ff;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+}
+
+.post {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+/* alternate coloring */
+.post:nth-child(even) {
+    background: #ff6565;
+}
+
+.post:nth-child(odd) {
+    background: #6dff65;
+}
+
+a {
+    color: #4c00ff;
+    text-decoration: none;
+}
+
+h1 {
+    font-weight: normal;
+    border-bottom: 1px solid #bbb;
+    padding: 0 0 10px 0;
+}
+
+h2 {
+    font-weight: normal;
+    margin: 30px 0 0;
+}
+
+#content {
+    float: left;
+    width: 60%;
+    padding: 0 0 0 30px;
+}
+
+#sidebar {
+    float: right;
+    width: 30%;
+    padding: 10px;
+    background: #efefef;
+    height: 100%;
+}
+
+p.date {
+    color: #2f2f2f;
+    font-family: Georgia, serif;
+    font-size: 12px;
+    font-style: italic;
+}
+.left{
+    float: left;
+    margin-right: 10px;
+}
+
+.pagination{
+    margin: 30px 0;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.step-links a{
+    text-decoration: none;
+    padding: 8px 12px;
+    margin: 0 4px;
+    border: 1px solid #cccc;
+    color: #333;
+    border-radius: 4px;
+    background-color: #ca66ff;
+    transition: 0.3s;
+}
+.step-links a:hover{
+    background-color: #b327ff;
+    color: white;
+    border-color: #a600ff;
+}
+
+.step-links .current{
+    padding: 8px 12px;
+    margin: 0 4px;
+    background-color: #b327ff;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    border: 1px solid #b327ff;
+}
+.current{
+    padding: 8px 12px;
+    margin: 0 4px;
+    background-color: #b327ff;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    border: 1px solid #b327ff;
+}
+input[type=submit]{
+    font-weight: bold;
+    background: #00abff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.errorlist{
+    color: #cc0033;
+    float: left;
+    clear: both;
+    padding-left: 10px;
+}
+
+.comment{
+    padding: 10px;
+}
+
+.comment:nth-child(even){
+    background: white;
+}
+
+.info{
+    font-weight: bold;
+    font-size: 12px;
+    color: black ;
+}
+
+.tags{
+        margin-top:20px;
+        display:inline-block;
+        background:pink;
+        color:blue;
+        padding:5px 10px;
+        margin:3px;
+        border-radius: 20px;
+        font-size: 13px;
+        text-decoration: none;
+        border: 1px solid purple;
+    }
+    .tags:hover{
+        background:rgb(255, 113, 255);
+        color:black;
+    }

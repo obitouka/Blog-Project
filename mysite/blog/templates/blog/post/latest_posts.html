@@ -1,0 +1,11 @@
+<ul>                                                  <!-- 3.15 Display latest posts list -->
+
+{% for post in latest_posts %}                         <!-- 10.8 Loop through latest posts -->
+    <li>
+        <a href="{{post.get_absolute_url}}">                  <!-- 7.13 Generate URL -->
+            {{post.title}}                                        <!-- 2.44 Show title -->
+        </a>
+    </li>
+{% endfor %}
+
+</ul>

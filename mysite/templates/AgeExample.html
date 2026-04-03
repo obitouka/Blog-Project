@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AgeExample</title>
+</head>
+<body>
+
+    <p>Enter age: </p>
+    <form method="POST">
+        {%csrf_token%}
+        <input type="number" name="age">
+        <button type="submit">submit kro</button>
+    </form>
+
+    <p>{{msg}}</p>
+
+</body>
+</html>
