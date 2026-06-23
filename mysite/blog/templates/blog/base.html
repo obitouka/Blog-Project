@@ -1,38 +1,38 @@
-{% load static %}         <!-- 0.18 Load static files -->
-{% load blog_tags %}      <!-- 3.16 Load custom tags -->
-
+{% load static %}
+{% load blog_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        {% block title %}{% endblock %}
-    </title> <!-- 0.19 Dynamic title -->
-    <link rel="stylesheet" href="{% static 'css/design.css' %}">
-    <!-- 0.20 CSS file -->
+    <title>{% block title %}{% endblock %}</title>
+    <link rel='stylesheet' href={% static "css/design.css" %}>
 </head>
-
 <body>
     <div id="content">
-        {% block content %}{% endblock %}
-        <!-- 0.21 Page content -->
+        {% block content %}
+        {% endblock %}
     </div>
-
     <div id="sidebar">
-        <h2>My Blog</h2>
-        <p>This is my blog</p>
-
-        <h2 class="tags">
-            I have {% total_posts %} posts in my DB
-            <!-- 3.17 Custom tag (count posts) -->
-        </h2>
-
+        <h2> My Blog </h2>
+        <p> This is my blog. </p>
         <hr>
-        
+        <h2 class="tags">{% total_posts %}  </h2><p>Posts in my Database.</p>
+        <hr>
+            <p>
+                <a href="{% url "blog:post_feed" %}">Subscribe to my rss feed</a>
+            </p>
+        <hr>
         <h2>Latest Posts</h2>
-        {% show_latest_posts 6 %}
-        <!-- 10.9 Show latest 6 posts -->
+        {% show_latest_posts 3 %}
+        <hr>
+        <h3>Most Commented Posts</h3>
+        {% get_most_commented_posts as most_commented_posts %}
+        <ul>
+            {% for post in most_commented_posts %}
+                <li><a href="{{ post.get_absolute_url }}">{{post.title}}</a></li>
+            {% endfor %}
+        </ul>
     </div>
 </body>
 </html>

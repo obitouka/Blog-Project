@@ -19,6 +19,12 @@ from django.urls import path, include
 from django.urls import path
 
 from mysite import views_mysite
+from django.contrib.sitemaps.views import sitemap
+from blog.sitemaps import PostSitemap
+
+sitemaps={'posts':PostSitemap}
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,4 +38,6 @@ urlpatterns = [
     path('contacts/', views_mysite.contacts),
     path('example1/', views_mysite.example1),
     path('AgeExample/', views_mysite.AgeExample),
+    path('sitemap.xml',sitemap,{'sitemaps':sitemaps},name='django.contrib.sitemaps.views.sitemap'),
+
 ]

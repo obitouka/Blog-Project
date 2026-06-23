@@ -23,6 +23,9 @@ class PostAdmin(admin.ModelAdmin):                    # 4.7 Customize how Post a
     date_hierarchy = 'publish'                        # 5.4 Filter by date hierarchy (year→month→day)
     ordering = ['status','publish']                   # 5.5 Order by status then publish date
 
+    prepopulated_fields = {'slug':('title',)}
+    show_facets=admin.ShowFacets.ALWAYS
+
 
 # 8.40 ADMIN CONFIG FOR COMMENT MODEL
 @admin.register(Comment)

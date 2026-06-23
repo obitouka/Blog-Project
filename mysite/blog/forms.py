@@ -22,3 +22,6 @@ class CommentForm(forms.ModelForm):                   # 8.47 ModelForm→auto-ge
         # name→maps to Comment.name(CharField)→input for user name
         # email→maps to Comment.email(TextField)→input for user email
         # body→maps to Comment.body(TextField)→textarea for comment content
+
+class SearchForm(forms.Form):
+    query = forms.CharField()

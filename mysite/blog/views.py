@@ -2,11 +2,12 @@ from django.shortcuts import render,get_object_or_404   # 0.6 django.shortcuts�
 from . models import Post                                # 0.7 '.'→current app;models→file;Post→class mapped to DB table
 from django.core.mail import send_mail                   # 11.1 send_mail(subject,message,from,recipient_list)→sends email using configured SMTP
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger # 9.1 Paginator→splits queryset into pages;EmptyPage→exception if page too high;PageNotAnInteger→exception if invalid page
-from .forms import CommentForm,EmailPostForm            # 8.18 CommentForm→ModelForm for comments;11.2 EmailPostForm→Form for email input
+from .forms import CommentForm,EmailPostForm, SearchForm           # 8.18 CommentForm→ModelForm for comments;11.2 EmailPostForm→Form for email input
 from django.views.decorators.http import require_POST    # 8.19 decorator→restricts view to only POST requests
 from taggit.models import Tag                            # 3.3 Tag model from django-taggit→used for tagging posts
 from django.db.models import Count                       # 10.1 Count(field)→counts related rows (used in aggregation)
-
+from django.contrib.postgres.search import SearchVector, TrigramSimilarity
+from django.contrib.postgres.search import (SearchVector, SearchQuery, SearchRank)
 
 # 9.2 POST LIST (HOME PAGE)
 def post_list(request,tag_slug=None):                   # request→HttpRequest object(tag,data,headers);tag_slug→optional URL parameter
@@ -107,3 +108,77 @@ def post_comment(request,post_id):
         'form':form,
         'comment':comment
     })
+
+# def post_search(request):
+#     form = SearchForm()
+#     query = None
+#     results = []
+#     if 'query' in request.GET:
+#         form = SearchForm(request.GET)
+#         if form.is_valid():
+#             query = form.cleaned_data['query']
+#             results = (Post.published.annotate(
+#                 search = SearchVector('title', 'body'),).filter(search = query)            
+#             )
+
+#     return render(request, 'blog/post/search.html',{
+#         'form':form,
+#         'query':query,
+#         'results':results
+#     })
+
+
+# def post_search(request):
+#     form = SearchForm()
+#     query = None
+#     results = []
+#     if 'query' in request.GET:
+#         form = SearchForm(request.GET)
+#         if form.is_valid():
+#             query = form.cleaned_data['query']
+#             search_vector = SearchVector('title', weight='A')+SearchVector('body', weight='B')
+#             search_query = SearchQuery(query)
+#             results = (
+#                 Post.published.annotate(
+#                     search=search_vector,
+#                     rank=SearchRank(search_vector, search_query)
+#                 )
+#                 .filter(rank__gte=0.3)
+#                 .order_by('-rank')
+#             )
+#     return render(
+#         request,
+#         'blog/post/search.html',
+#         {
+#             'form': form,
+#             'query': query,
+#             'results': results
+#         }
+#     )
+
+
+
+def post_search(request):
+    form = SearchForm()
+    query = None
+    results = []
+    if 'query' in request.GET:
+        form = SearchForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data['query']
+            results = (
+                Post.published.annotate(
+                    similarity = TrigramSimilarity('title', query)
+                )
+                .filter(similarity__gte=0.01)
+                .order_by('-similarity')
+            )
+    return render(
+        request,
+        'blog/post/search.html',
+        {
+            'form': form,
+            'query': query,
+            'results': results
+        }
+    )
