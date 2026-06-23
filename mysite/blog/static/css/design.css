@@ -1,5 +1,6 @@
 body {
-    background-color: #e0a6ff;
+    background-color: #0f172a;
+    color: #e2e8f0;
     margin: 0;
     padding: 0;
     font-family: Helvetica, sans-serif;
@@ -8,32 +9,45 @@ body {
 .post {
     padding: 15px;
     margin-bottom: 15px;
-    border-radius: 5px;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    transition: 0.3s;
 }
 
-/* alternate coloring */
+/* Alternate coloring */
 .post:nth-child(even) {
-    background: #ff6565;
+    background: #1e293b;
 }
 
 .post:nth-child(odd) {
-    background: #6dff65;
+    background: #172033;
+}
+
+.post:hover {
+    transform: translateY(-2px);
+    border-color: #8b5cf6;
 }
 
 a {
-    color: #4c00ff;
+    color: #a78bfa;
     text-decoration: none;
+}
+
+a:hover {
+    color: #c4b5fd;
 }
 
 h1 {
     font-weight: normal;
-    border-bottom: 1px solid #bbb;
+    border-bottom: 2px solid #334155;
     padding: 0 0 10px 0;
+    color: #f8fafc;
 }
 
 h2 {
     font-weight: normal;
     margin: 30px 0 0;
+    color: #f1f5f9;
 }
 
 #content {
@@ -45,105 +59,111 @@ h2 {
 #sidebar {
     float: right;
     width: 30%;
-    padding: 10px;
-    background: #efefef;
-    height: 100%;
+    padding: 20px;
+    background: #111827;
+    border-left: 1px solid #334155;
+    min-height: 100vh;
 }
 
 p.date {
-    color: #2f2f2f;
+    color: #94a3b8;
     font-family: Georgia, serif;
     font-size: 12px;
     font-style: italic;
 }
-.left{
+
+.left {
     float: left;
     margin-right: 10px;
 }
 
-.pagination{
+.pagination {
     margin: 30px 0;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.step-links a{
+.step-links a {
     text-decoration: none;
     padding: 8px 12px;
     margin: 0 4px;
-    border: 1px solid #cccc;
-    color: #333;
-    border-radius: 4px;
-    background-color: #ca66ff;
+    border: 1px solid #8b5cf6;
+    color: white;
+    border-radius: 8px;
+    background-color: #7c3aed;
     transition: 0.3s;
 }
-.step-links a:hover{
-    background-color: #b327ff;
-    color: white;
-    border-color: #a600ff;
+
+.step-links a:hover {
+    background-color: #9333ea;
+    border-color: #a855f7;
 }
 
-.step-links .current{
+.step-links .current,
+.current {
     padding: 8px 12px;
     margin: 0 4px;
-    background-color: #b327ff;
+    background-color: #a855f7;
     color: white;
-    border-radius: 4px;
+    border-radius: 8px;
     font-weight: bold;
-    border: 1px solid #b327ff;
+    border: 1px solid #a855f7;
 }
-.current{
-    padding: 8px 12px;
-    margin: 0 4px;
-    background-color: #b327ff;
+
+input[type=submit] {
+    font-weight: bold;
+    background: #8b5cf6;
     color: white;
-    border-radius: 4px;
-    font-weight: bold;
-    border: 1px solid #b327ff;
-}
-input[type=submit]{
-    font-weight: bold;
-    background: #00abff;
-    color: #fff;
     padding: 10px 20px;
     font-size: 14px;
     text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.errorlist{
-    color: #cc0033;
+input[type=submit]:hover {
+    background: #a855f7;
+}
+
+.errorlist {
+    color: #f87171;
     float: left;
     clear: both;
     padding-left: 10px;
 }
 
-.comment{
-    padding: 10px;
+.comment {
+    padding: 15px;
+    border-radius: 8px;
 }
 
-.comment:nth-child(even){
-    background: white;
+.comment:nth-child(even) {
+    background: #1e293b;
 }
 
-.info{
+.info {
     font-weight: bold;
     font-size: 12px;
-    color: black ;
+    color: #cbd5e1;
 }
 
-.tags{
-        margin-top:20px;
-        display:inline-block;
-        background:pink;
-        color:blue;
-        padding:5px 10px;
-        margin:3px;
-        border-radius: 20px;
-        font-size: 13px;
-        text-decoration: none;
-        border: 1px solid purple;
-    }
-    .tags:hover{
-        background:rgb(255, 113, 255);
-        color:black;
-    }
+.tags {
+    margin-top: 20px;
+    display: inline-block;
+    background: #312e81;
+    color: #c4b5fd;
+    padding: 5px 12px;
+    margin: 3px;
+    border-radius: 20px;
+    font-size: 13px;
+    text-decoration: none;
+    border: 1px solid #8b5cf6;
+    transition: 0.3s;
+}
+
+.tags:hover {
+    background: #7c3aed;
+    color: white;
+}
