@@ -1,4 +1,4 @@
-# Django Blog Platform
+# Django Blog App
 
 A Blog project that enables content publishing, reader engagement, and content discovery through comments, tags, search and sharing functionality. The application also includes SEO-focused features such as XML sitemaps and clean URL structures to improve content indexing and discoverability.
 ## Features
@@ -58,7 +58,3 @@ python manage.py migrate
 ```bash
 python manage.py runserver
 ```
-
-## Repository
-
-https://github.com/obitouka/Blog-Project
